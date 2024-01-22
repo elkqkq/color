@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    button {
+      font-size: 16px;
+      margin: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Color Generator</h1>
+
+  <div>
+    <button id="generateFromArray">Generate from Array</button>
+    <button id="generateFromHex">Generate from Hex</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Predefined array of colors
+      const colorArray = ['#3498db', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6', '#34495e', '#1abc9c', '#d35400'];
+
+      // Function to generate a random color from the array
+      function generateColorFromArray() {
+        const randomIndex = Math.floor(Math.random() * colorArray.length);
+        const randomColor = colorArray[randomIndex];
+        document.body.style.backgroundColor = randomColor;
+      }
+
+      // Function to generate a random hex color
+      function generateColorFromHex() {
+        const randomHexColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor = randomHexColor;
+      }
+
+      // Event listener for the "Generate from Array" button
+      document.getElementById('generateFromArray').addEventListener('click', generateColorFromArray);
+
+      // Event listener for the "Generate from Hex" button
+      document.getElementById('generateFromHex').addEventListener('click', generateColorFromHex);
+    });
+  </script>
+
+</body>
+</html>
